@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GggAppDocs", "GggAppDocs\GggAppDocs.csproj", "{C87E544B-6605-4BDA-8A26-2562E203C5FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GggUnitTestProject", "GggUnitTestProject\GggUnitTestProject.csproj", "{A211CA90-8668-4B4A-8B17-9B81DDBC8435}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandLines", "CommandLines", "{67AED9BD-50D4-4844-9517-7A47C2A81DEC}"
+	ProjectSection(SolutionItems) = preProject
+		DotNetCommandLines.js = DotNetCommandLines.js
+		DotNetNew.js = DotNetNew.js
+		DotNetPack.js = DotNetPack.js
+		DotNetPublish.js = DotNetPublish.js
+		DotNetStore.js = DotNetStore.js
+		DotNetTest.js = DotNetTest.js
+		install it on a Windows.ps1 = install it on a Windows.ps1
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GggXUnitTestProject", "GggXUnitTestProject\GggXUnitTestProject.csproj", "{963BDF95-383C-4029-97C2-8E11BF49B055}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GggNetStandard", "GggNetStandard\GggNetStandard.csproj", "{328B46B7-9A02-4C4A-AAE5-8F34D7AEAB2C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GggWebApplication", "GggWebApplication\GggWebApplication.csproj", "{C09912AD-44CE-46EE-A6DC-32E3F259C681}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GggRazorPages", "GggRazorPages\GggRazorPages.csproj", "{AA18A6CE-F684-4240-9D97-BBD8C7C37812}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GggNUnitTestProject", "GggNUnitTestProject\GggNUnitTestProject.csproj", "{37DDD91F-1F5D-4BE8-9D90-4BC531B373E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C87E544B-6605-4BDA-8A26-2562E203C5FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C87E544B-6605-4BDA-8A26-2562E203C5FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C87E544B-6605-4BDA-8A26-2562E203C5FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C87E544B-6605-4BDA-8A26-2562E203C5FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A211CA90-8668-4B4A-8B17-9B81DDBC8435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A211CA90-8668-4B4A-8B17-9B81DDBC8435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A211CA90-8668-4B4A-8B17-9B81DDBC8435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A211CA90-8668-4B4A-8B17-9B81DDBC8435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{963BDF95-383C-4029-97C2-8E11BF49B055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{963BDF95-383C-4029-97C2-8E11BF49B055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{963BDF95-383C-4029-97C2-8E11BF49B055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{963BDF95-383C-4029-97C2-8E11BF49B055}.Release|Any CPU.Build.0 = Release|Any CPU
+		{328B46B7-9A02-4C4A-AAE5-8F34D7AEAB2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{328B46B7-9A02-4C4A-AAE5-8F34D7AEAB2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{328B46B7-9A02-4C4A-AAE5-8F34D7AEAB2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{328B46B7-9A02-4C4A-AAE5-8F34D7AEAB2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C09912AD-44CE-46EE-A6DC-32E3F259C681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C09912AD-44CE-46EE-A6DC-32E3F259C681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C09912AD-44CE-46EE-A6DC-32E3F259C681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C09912AD-44CE-46EE-A6DC-32E3F259C681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA18A6CE-F684-4240-9D97-BBD8C7C37812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA18A6CE-F684-4240-9D97-BBD8C7C37812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA18A6CE-F684-4240-9D97-BBD8C7C37812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA18A6CE-F684-4240-9D97-BBD8C7C37812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37DDD91F-1F5D-4BE8-9D90-4BC531B373E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37DDD91F-1F5D-4BE8-9D90-4BC531B373E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37DDD91F-1F5D-4BE8-9D90-4BC531B373E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37DDD91F-1F5D-4BE8-9D90-4BC531B373E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2835553D-DC08-4507-9E4A-61582C3E0DB7}
+	EndGlobalSection
+EndGlobal

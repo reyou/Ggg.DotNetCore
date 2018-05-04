@@ -1,0 +1,1 @@
+﻿{"ContextClassName":"EftutoContext","DefaultDacpacSchema":null,"IdReplace":false,"IncludeConnectionString":true,"OutputPath":"","ProjectRootNamespace":"TutoPoint.EfGenerator","SelectedToBeGenerated":0,"Tables":["dbo.Employee"],"UseDatabaseNames":false,"UseFluentApiOnly":true,"UseHandleBars":false,"UseInflector":false}

@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "aozdemir",
+  "classifications": [ "Common", "Console" ],
+  "identity": "aozdemir.ConsoleTemplate.CSharp",
+  "name": "aozdemir Software Console Application",
+  "shortName": "aozdemiraconsole"
+}
