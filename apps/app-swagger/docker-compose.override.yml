@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  swagger.webapplication:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
