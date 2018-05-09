@@ -1,0 +1,16 @@
+Usage: dotnet run [options] [[--] <additional arguments>...]]
+
+Options:
+  -h, --help                            Show help information.
+  -c, --configuration <CONFIGURATION>   Configuration to use for building the project.  Default for most projects is  "Debug".
+  -f, --framework <FRAMEWORK>           Target framework to publish for. The target framework has to be specified in the project file.
+  -p, --project                         The path to the project file to run (defaults to the current directory if there is only one project).
+  --launch-profile                      The name of the launch profile (if any) to use when launching the application.
+  --no-launch-profile                   Do not attempt to use launchSettings.json to configure the application.
+  --no-build                            Skip building the project prior to running. By default, the project will be built.
+  --no-restore                          Does not do an implicit restore when executing the command.
+  --runtime <RUNTIME_IDENTIFIER>        Target runtime to restore packages for.
+  --no-dependencies                     Set this flag to ignore project to project references and only restore the root project.
+  --force                               Set this flag to force all dependencies to be resolved even if the last restore was successful. This is equivalent to deleting project.assets.json.
+Additional Arguments::
+  Arguments passed to the application that is being run.

@@ -28,6 +28,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GggRazorPages", "GggRazorPa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GggNUnitTestProject", "GggNUnitTestProject\GggNUnitTestProject.csproj", "{37DDD91F-1F5D-4BE8-9D90-4BC531B373E8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "commands", "commands", "{DECE75BA-6C27-4AAE-8C2B-A0192F9C83F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

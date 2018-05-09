@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using GggWebApplication.Filters;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Diagnostics;
 
 namespace GggWebApplication
 {
@@ -11,6 +14,8 @@ namespace GggWebApplication
         // Represents a set of key/value application configuration properties
         public Startup(IConfiguration configuration)
         {
+            Console.WriteLine("GggMessage: App Started!");
+            Console.WriteLine("GggMessage: ProcessId: " + Process.GetCurrentProcess().Id);
             Configuration = configuration;
         }
 
@@ -21,7 +26,19 @@ namespace GggWebApplication
         public void ConfigureServices(IServiceCollection services)
         {
             // Adds MVC services to the specified IServiceCollection
-            services.AddMvc();
+            // https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-2.1#feedback
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(new AddHeaderAttribute("GlobalAddHeader",
+                    "Result filter added to MvcOptions.Filters")); // an instance
+                options.Filters.Add(typeof(SampleActionFilter)); // by type
+                options.Filters.Add(new SampleGlobalActionFilter()); // an instance
+            });
+
+            // AddScoped: Adds a scoped service of the type specified in serviceType
+            // to the specified IServiceCollection
+            services.AddScoped<AddHeaderFilterWithDi>();
+
         }
 
         // This method gets called by the runtime. 
