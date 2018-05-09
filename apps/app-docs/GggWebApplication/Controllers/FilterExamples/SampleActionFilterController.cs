@@ -13,6 +13,5 @@ namespace GggWebApplication.Controllers.FilterExamples
         {
             return View();
         }
-
     }
 }
