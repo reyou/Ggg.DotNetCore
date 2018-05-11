@@ -7,7 +7,7 @@ namespace GggWebApplication.Filters
     {
         public SampleGlobalActionFilter()
         {
-            Console.WriteLine("GggMessage: " + GetType().FullName + ": ");
+            Console.WriteLine("GggMessage: " + GetType().FullName + ": SampleGlobalActionFilter");
         }
     }
 }

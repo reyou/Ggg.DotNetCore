@@ -1,11 +1,14 @@
 ﻿using GggWebApplication.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Localization.Routing;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace GggWebApplication
 {
@@ -33,6 +36,7 @@ namespace GggWebApplication
                     "Result filter added to MvcOptions.Filters")); // an instance
                 options.Filters.Add(typeof(SampleActionFilter)); // by type
                 options.Filters.Add(new SampleGlobalActionFilter()); // an instance
+                options.Filters.Add(new AddHeaderFilterWithDi2(null)); // an instance
             });
 
             // AddScoped: Adds a scoped service of the type specified in serviceType
@@ -80,6 +84,35 @@ namespace GggWebApplication
             }
             // Adds MVC to the IApplicationBuilder request execution pipeline
             applicationBuilder.UseMvc(ConfigureRoutes);
+        }
+
+        public class LocalizationPipeline
+        {
+            public void Configure(IApplicationBuilder applicationBuilder)
+            {
+                // Using middleware in the filter pipeline
+                // https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-2.1#authorization-filters
+                CultureInfo[] supportedCultures =
+                {
+                    new CultureInfo("en-US"),
+                    new CultureInfo("fr")
+                };
+                RequestLocalizationOptions options = new RequestLocalizationOptions
+                {
+
+                    DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US"),
+                    SupportedCultures = supportedCultures,
+                    SupportedUICultures = supportedCultures
+                };
+                options.RequestCultureProviders = new IRequestCultureProvider[]
+                {
+                    new RouteDataRequestCultureProvider
+                    {
+                        Options = options
+                    }
+                };
+                applicationBuilder.UseRequestLocalization(options);
+            }
         }
     }
 }
