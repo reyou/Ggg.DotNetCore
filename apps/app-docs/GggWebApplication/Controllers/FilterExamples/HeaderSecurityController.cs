@@ -3,12 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GggWebApplication.Controllers.FilterExamples
 {
-    /// <summary>
-    /// http://localhost:11781/SampleActionFilter
-    /// </summary>
-    public class SampleActionFilterController : Controller
+    public class HeaderSecurityController : Controller
     {
-        [SampleActionFilter]
+        /// <summary>
+        /// http://localhost:11781/HeaderSecurity
+        /// </summary>
+        /// <returns></returns>
+        [HeaderSecurityFilter]
         public ActionResult Index()
         {
             return View();

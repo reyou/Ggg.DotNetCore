@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
-using System;
+﻿using System;
+using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace GggWebApplication.Filters
+namespace GggWebApplication.Filters.Attributes
 {
     // IFilterFactory Interface: An interface for filter metadata which can
     // create an instance of an executable filter

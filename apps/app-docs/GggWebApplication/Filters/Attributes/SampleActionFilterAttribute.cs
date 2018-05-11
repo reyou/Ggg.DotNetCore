@@ -3,10 +3,13 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 using System;
 
-namespace GggWebApplication.Attributes
+namespace GggWebApplication.Filters.Attributes
 {
     /// <summary>
     /// https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-2.1#dependency-injection
+    /// TypeFilterAttribute Class
+    /// A filter that creates another filter of type ImplementationType, retrieving
+    /// missing constructor arguments from dependency injection if available there
     /// </summary>
     public class SampleActionFilterAttribute : TypeFilterAttribute
     {

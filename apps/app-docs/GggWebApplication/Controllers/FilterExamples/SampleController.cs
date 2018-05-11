@@ -1,5 +1,5 @@
-﻿using GggWebApplication.Attributes;
-using GggWebApplication.Filters;
+﻿using GggWebApplication.Filters;
+using GggWebApplication.Filters.Attributes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GggWebApplication.Controllers.FilterExamples
