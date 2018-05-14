@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using TutoPoint.Models;
 
@@ -17,6 +19,9 @@ namespace TutoPoint
         public IConfigurationRoot Configuration { get; set; }
         public Startup()
         {
+            Console.WriteLine("GggMessage: App Started!");
+            Console.WriteLine("GggMessage: ProcessName: " + Process.GetCurrentProcess().ProcessName);
+            Console.WriteLine("GggMessage: ProcessId: " + Process.GetCurrentProcess().Id);
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("AppSettings.json");
             Configuration = builder.Build();
         }

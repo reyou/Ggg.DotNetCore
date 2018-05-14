@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html> 
+<html> 
+   
+<head> 
+    <meta name = "viewport" content = "width = device-width" /> 
+    <title>@ViewBag.Title</title> 
+</head> 
+
+<body> 
+<div> 
+    @DateTime.Now 
+</div> 
+      
+<div>
+    @*This is where the method call to RenderBody exists. 
+        We can expect all of the content views throughout our application 
+        to appear inside the div where RenderBody is called.*@
+
+
+    @RenderBody()
+</div> 
+      
+</body> 
+</html>
