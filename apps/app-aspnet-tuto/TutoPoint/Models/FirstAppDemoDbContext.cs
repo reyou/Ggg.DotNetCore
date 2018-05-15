@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TutoPoint.ViewModels;
 
 namespace TutoPoint.Models
 {
@@ -59,6 +60,7 @@ namespace TutoPoint.Models
                     .HasMaxLength(250);
             });
         }
+        public DbSet<TutoPoint.ViewModels.EmployeeEditViewModel> EmployeeEditViewModel { get; set; }
 
     }
 }

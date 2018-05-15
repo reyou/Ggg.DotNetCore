@@ -1,5 +1,4 @@
-﻿@using TutoPoint.Controllers
-@model HomeController.HomePageViewModel
+﻿@model HomeController.HomePageViewModel
 @{
     ViewBag.Title = "Home";
 }
@@ -13,6 +12,14 @@
         <tr>
             <td>
                 @Html.ActionLink(employee.Id.ToString(), "Details", new
+                { id = employee.Id })
+            </td>
+            <td>
+                <a asp-controller="Home" asp-action="Details"
+                   asp-routeid="@employee.Id">Details</a>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new
                 { id = employee.Id })
             </td>
             <td>@employee.Name</td>

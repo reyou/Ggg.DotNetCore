@@ -1,0 +1,12 @@
+﻿@*The ViewImports file is a place where we can write code and
+    place common directives to pull in namespaces that our views need.
+    If there are namespaces that we commonly use in our views, we can have
+    using directives appear once in our ViewImports file instead of having
+    using directives in every view or typing out the full namespace of a class.*@
+@*https://www.tutorialspoint.com/asp.net_core/asp.net_core_razor_view_import.htm*@
+@using TutoPoint.Controllers
+@*But if you just wanted to take all the tag helpers that are in this assembly,
+    you can just use the asterisk(*). There are many tag helpers available in
+    the tag helper library. Let us have a look at the Index view.*@
+@*https://www.tutorialspoint.com/asp.net_core/asp.net_core_razor_tag_helpers.htm*@
+@addTagHelper "*, Microsoft.AspNet.Mvc.TagHelpers"

@@ -8,6 +8,19 @@ namespace TutoPoint.Controllers
 {
     public class HomeController : Controller
     {
+        public IActionResult Details(Guid id)
+        {
+            FirstAppDemoDbContext context = new FirstAppDemoDbContext();
+            SQLEmployeeData sqlData = new SQLEmployeeData(context);
+            Employee model = sqlData.Get(id);
+
+            if (model == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
         public IActionResult Index()
         {
             using (FirstAppDemoDbContext context = new FirstAppDemoDbContext())
@@ -63,11 +76,45 @@ namespace TutoPoint.Controllers
             return View();
         }
 
-        public IActionResult Details(int id)
+        /// <summary>
+        /// https://www.tutorialspoint.com/asp.net_core/asp.net_core_razor_edit_form.htm
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult Edit(Guid id)
         {
-            throw new System.NotImplementedException();
+            FirstAppDemoDbContext context = new FirstAppDemoDbContext();
+            SQLEmployeeData sqlData = new SQLEmployeeData(context);
+            Employee model = sqlData.Get(id);
+            if (model == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
 
+        /// <summary>
+        /// https://www.tutorialspoint.com/asp.net_core/asp.net_core_razor_edit_form.htm
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult Edit(Guid id, Employee input)
+        {
+            var context = new FirstAppDemoDbContext();
+            SQLEmployeeData sqlData = new SQLEmployeeData(context);
+            var employee = sqlData.Get(id);
+
+            if (employee != null && ModelState.IsValid)
+            {
+                employee.Name = input.Name;
+                context.SaveChanges();
+                return RedirectToAction("Details", new { id = employee.Id });
+            }
+            return View(employee);
+        }
 
     }
 }
