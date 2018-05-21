@@ -15,6 +15,6 @@ https://msdn.microsoft.com/en-us/magazine/mt842506.aspx
 
 > .NET Standard is a **specification of APIs that all .NET implementations must provide**. It brings consistency to the .NET family and enables you to build libraries you can use from any .NET implementation. **It replaces PCLs for building shared components.**
 
-
+![](/notes/.NET%20Core%20SDK%20or%20the%20.NET%20Core%20runtime.PNG "Title")
 
 
