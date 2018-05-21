@@ -1,4 +1,5 @@
-﻿using GggWebApplication.Filters;
+﻿using GggWebApplication.Controllers.LoggingExamples;
+using GggWebApplication.Filters;
 using GggWebApplication.Filters.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,6 +44,7 @@ namespace GggWebApplication
             // AddScoped: Adds a scoped service of the type specified in serviceType
             // to the specified IServiceCollection
             services.AddScoped<AddHeaderFilterWithDi>();
+            services.AddTransient<ITodoRepository, TodoRepository>();
 
         }
 
