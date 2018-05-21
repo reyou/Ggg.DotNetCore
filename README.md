@@ -17,4 +17,11 @@ https://msdn.microsoft.com/en-us/magazine/mt842506.aspx
 
 ![](/notes/.NET%20Core%20SDK%20or%20the%20.NET%20Core%20runtime.PNG "Title")
 
-
+### Logging in ASP.NET Core
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x
+> ASP.NET Core doesn't provide async logger methods because logging should 
+be so fast that it isn't worth the cost of using async. If you're in a 
+situation where that's not true, consider changing the way you log. If your 
+data store is slow, write the log messages to a fast store first, then move them 
+to a slow store later. For example, log to a message queue that's read and 
+persisted to slow storage by another process.
