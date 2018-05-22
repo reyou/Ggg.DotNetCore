@@ -2,6 +2,6 @@
 {
     public interface ITodoRepository
     {
-        object Find(string id);
+        TodoItem Find(string id);
     }
 }

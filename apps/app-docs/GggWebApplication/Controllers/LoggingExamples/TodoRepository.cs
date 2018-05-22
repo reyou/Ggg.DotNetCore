@@ -4,9 +4,9 @@ namespace GggWebApplication.Controllers.LoggingExamples
 {
     public class TodoRepository : ITodoRepository
     {
-        public object Find(string id)
+        public TodoItem Find(string id)
         {
-            return new
+            return new TodoItem
             {
                 Title = "Portal",
                 Date = DateTime.Now
