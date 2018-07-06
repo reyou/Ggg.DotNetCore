@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutoPoint", "TutoPoint\Tuto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutoPoint.EfGenerator", "TutoPoint.EfGenerator\TutoPoint.EfGenerator.csproj", "{0A583877-98A1-4059-BCE7-9CA1D0836DB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutoPointAuth", "TutoPointAuth\TutoPointAuth.csproj", "{49C2FE77-D1A2-4661-86CB-991EBA62A1DB}"
-EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{CB1605C1-58D3-4CF5-A1BB-5916B44191B9}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{0A583877-98A1-4059-BCE7-9CA1D0836DB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A583877-98A1-4059-BCE7-9CA1D0836DB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A583877-98A1-4059-BCE7-9CA1D0836DB4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{49C2FE77-D1A2-4661-86CB-991EBA62A1DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{49C2FE77-D1A2-4661-86CB-991EBA62A1DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{49C2FE77-D1A2-4661-86CB-991EBA62A1DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{49C2FE77-D1A2-4661-86CB-991EBA62A1DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CB1605C1-58D3-4CF5-A1BB-5916B44191B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CB1605C1-58D3-4CF5-A1BB-5916B44191B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB1605C1-58D3-4CF5-A1BB-5916B44191B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
