@@ -36,6 +36,7 @@ namespace aspnetcoreapp.Pages
 
             _db.Customers.Add(Customer);
             await _db.SaveChangesAsync();
+            // Redirects (Status302Found) to the current page
             return RedirectToPage("/Index");
         }
     }

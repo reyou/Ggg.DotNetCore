@@ -17,6 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "commandLines", "commandLine
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gettingStarted", "gettingStarted", "{4BB2E038-0139-4815-8114-28A32F7DF9E8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tutorials", "tutorials", "{CB0C673E-3178-41C9-90B6-B0E257A4AD4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "signalrTutorial", "signalrTutorial", "{922CB869-6D46-48D8-B197-F25467CB15CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChat", "SignalRChat\SignalRChat.csproj", "{6053067E-4114-41D0-AFEB-CB4928CC9030}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,12 +33,18 @@ Global
 		{B5F89854-7896-47EF-98F1-A6562B52A96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5F89854-7896-47EF-98F1-A6562B52A96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5F89854-7896-47EF-98F1-A6562B52A96B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6053067E-4114-41D0-AFEB-CB4928CC9030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6053067E-4114-41D0-AFEB-CB4928CC9030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6053067E-4114-41D0-AFEB-CB4928CC9030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6053067E-4114-41D0-AFEB-CB4928CC9030}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B5F89854-7896-47EF-98F1-A6562B52A96B} = {4BB2E038-0139-4815-8114-28A32F7DF9E8}
+		{922CB869-6D46-48D8-B197-F25467CB15CE} = {CB0C673E-3178-41C9-90B6-B0E257A4AD4B}
+		{6053067E-4114-41D0-AFEB-CB4928CC9030} = {922CB869-6D46-48D8-B197-F25467CB15CE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {02E9C280-C8D3-49C6-846B-277DD5886646}
