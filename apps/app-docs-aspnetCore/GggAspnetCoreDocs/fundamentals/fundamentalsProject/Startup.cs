@@ -49,6 +49,9 @@ namespace fundamentalsProject
 
                 logger.LogInformation($"Environment: {_env.EnvironmentName}");
             }
+
+            services.AddTransient<IStartupFilter, RequestSetOptionsStartupFilter>();
+
             // default template services
             services.Configure<CookiePolicyOptions>(options =>
             {
