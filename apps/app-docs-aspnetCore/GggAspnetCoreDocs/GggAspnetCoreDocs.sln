@@ -21,13 +21,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tutorials", "tutorials", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "signalrTutorial", "signalrTutorial", "{922CB869-6D46-48D8-B197-F25467CB15CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChat", "SignalRChat\SignalRChat.csproj", "{6053067E-4114-41D0-AFEB-CB4928CC9030}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRChat", "SignalRChat\SignalRChat.csproj", "{6053067E-4114-41D0-AFEB-CB4928CC9030}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "signalrTypescriptWebpack", "signalrTypescriptWebpack", "{20278F57-E09F-4328-851D-82401D3322C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRWebPack", "SignalRWebPack\SignalRWebPack.csproj", "{3202BE24-E6DC-49AC-865F-1B4B2AC7B57C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRWebPack", "SignalRWebPack\SignalRWebPack.csproj", "{3202BE24-E6DC-49AC-865F-1B4B2AC7B57C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "usingSwagger", "usingSwagger", "{7482F599-2A96-45BE-A627-7A1ABADF6DAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fundamentals", "fundamentals", "{2A4E5AC0-A5B1-4732-A47E-B833B0B37C91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fundamentalsProject", "fundamentals\fundamentalsProject\fundamentalsProject.csproj", "{97B1055A-9B38-4346-BDA2-9F1DF2D9F8CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +51,10 @@ Global
 		{3202BE24-E6DC-49AC-865F-1B4B2AC7B57C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3202BE24-E6DC-49AC-865F-1B4B2AC7B57C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3202BE24-E6DC-49AC-865F-1B4B2AC7B57C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97B1055A-9B38-4346-BDA2-9F1DF2D9F8CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97B1055A-9B38-4346-BDA2-9F1DF2D9F8CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97B1055A-9B38-4346-BDA2-9F1DF2D9F8CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97B1055A-9B38-4346-BDA2-9F1DF2D9F8CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +66,7 @@ Global
 		{20278F57-E09F-4328-851D-82401D3322C6} = {CB0C673E-3178-41C9-90B6-B0E257A4AD4B}
 		{3202BE24-E6DC-49AC-865F-1B4B2AC7B57C} = {20278F57-E09F-4328-851D-82401D3322C6}
 		{7482F599-2A96-45BE-A627-7A1ABADF6DAA} = {CB0C673E-3178-41C9-90B6-B0E257A4AD4B}
+		{97B1055A-9B38-4346-BDA2-9F1DF2D9F8CC} = {2A4E5AC0-A5B1-4732-A47E-B833B0B37C91}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {02E9C280-C8D3-49C6-846B-277DD5886646}
