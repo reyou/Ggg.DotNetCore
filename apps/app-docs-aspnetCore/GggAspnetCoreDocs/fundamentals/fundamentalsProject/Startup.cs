@@ -1,6 +1,8 @@
+using fundamentalsProject.dependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -51,6 +53,9 @@ namespace fundamentalsProject
             }
 
             services.AddTransient<IStartupFilter, RequestSetOptionsStartupFilter>();
+
+            // dependency injection
+            services.AddScoped<IMyDependency, MyDependency>();
 
             // default template services
             services.Configure<CookiePolicyOptions>(options =>
