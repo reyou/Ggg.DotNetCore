@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Primitives;
 
 namespace fundamentalsProject
 {
@@ -22,7 +23,7 @@ namespace fundamentalsProject
         {
             Console.WriteLine("RequestSetOptionsMiddleware.Invoke");
 
-            var option = httpContext.Request.Query["option"];
+            StringValues option = httpContext.Request.Query["option"];
 
             if (!string.IsNullOrWhiteSpace(option))
             {
