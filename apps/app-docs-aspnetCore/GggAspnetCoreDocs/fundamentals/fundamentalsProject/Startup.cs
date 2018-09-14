@@ -1,11 +1,9 @@
-using System.Threading.Tasks;
 using fundamentalsProject.dependencyInjection;
 using fundamentalsProject.middleware;
 using fundamentalsProject.middleware.extensibility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +22,7 @@ namespace fundamentalsProject
         private readonly IHostingEnvironment _env;
         private readonly IConfiguration _config;
         private readonly ILoggerFactory _loggerFactory;
+
 
         public Startup(IHostingEnvironment env, IConfiguration config,
             ILoggerFactory loggerFactory)
@@ -60,6 +59,7 @@ namespace fundamentalsProject
 
             // dependency injection
             services.AddScoped<IMyDependency, MyDependency>();
+            services.AddScoped<AppDbContext>();
 
             // default template services
             services.Configure<CookiePolicyOptions>(options =>
@@ -74,6 +74,11 @@ namespace fundamentalsProject
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
