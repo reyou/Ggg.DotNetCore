@@ -1,3 +1,4 @@
+using System.IO;
 using fundamentalsProject.dependencyInjection;
 using fundamentalsProject.middleware;
 using fundamentalsProject.middleware.extensibility;
@@ -5,8 +6,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Primitives;
 
@@ -55,6 +58,8 @@ namespace fundamentalsProject
                 logger.LogInformation($"Environment: {_env.EnvironmentName}");
             }
 
+            services.AddDirectoryBrowser();
+
             services.AddTransient<IStartupFilter, RequestSetOptionsStartupFilter>();
 
             // dependency injection
@@ -74,10 +79,6 @@ namespace fundamentalsProject
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-
-
-
 
         }
 
@@ -107,11 +108,24 @@ namespace fundamentalsProject
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
+            // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files?view=aspnetcore-2.1&tabs=aspnetcore2x#serve-a-default-document
+            app.UseDefaultFiles();
+
             // Use HTTPS Redirection Middleware to redirect HTTP requests to HTTPS.
             app.UseHttpsRedirection();
 
             // Return static files and end the pipeline.
-            app.UseStaticFiles();
+
+            UseStaticFiles(env, app);
+            RunFileExtensionContentTypeProvider(app);
+
+            // http://localhost:50312/MyImages/
+            app.UseDirectoryBrowser(new DirectoryBrowserOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images")),
+                RequestPath = "/MyImages"
+            });
 
             // Use Cookie Policy Middleware to conform to EU General Data 
             //   Protection Regulation (GDPR) regulations.
@@ -122,6 +136,42 @@ namespace fundamentalsProject
             app.UseAuthentication();
 
             // map
+            Map(app);
+
+            // custom middleware
+            app.UseRequestCulture();
+
+            // Both middlewares are registered in the request processing pipeline in Configure:
+            app.UseConventionalMiddleware();
+            app.UseFactoryActivatedMiddleware();
+
+            app.UseMvc();
+        }
+
+        private void RunFileExtensionContentTypeProvider(IApplicationBuilder app)
+        {
+            // Set up custom content types - associating file extension to MIME type
+            FileExtensionContentTypeProvider provider = new FileExtensionContentTypeProvider();
+            // Add new mappings
+            provider.Mappings[".myapp"] = "application/x-msdownload";
+            provider.Mappings[".htm3"] = "text/html";
+            provider.Mappings[".image"] = "image/png";
+            // Replace an existing mapping
+            provider.Mappings[".rtf"] = "application/x-msdownload";
+            // Remove MP4 videos.
+            provider.Mappings.Remove(".mp4");
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images")),
+                RequestPath = "/MyImagesContentTypeProvider",
+                ContentTypeProvider = provider
+            });
+        }
+
+        private void Map(IApplicationBuilder app)
+        {
             app.Map("/map1", HandleMapTest1);
             app.Map("/map2", HandleMapTest2);
             app.Map("/map1/seg1", HandleMultiSeg);
@@ -151,15 +201,39 @@ namespace fundamentalsProject
             // map when
             app.MapWhen(context => context.Request.Query.ContainsKey("branch"),
                 HandleBranch);
+        }
 
-            // custom middleware
-            app.UseRequestCulture();
+        /// <summary>
+        /// https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files?view=aspnetcore-2.1&tabs=aspnetcore2x#non-standard-content-types
+        /// </summary>
+        /// <param name="env"></param>
+        /// <param name="app"></param>
+        private void UseStaticFiles(IHostingEnvironment env, IApplicationBuilder app)
+        {
+            string cachePeriod = env.IsDevelopment() ? "600" : "604800";
+            // For the wwwroot folder
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                OnPrepareResponse = ctx =>
+                {
+                    // Requires the following import:
+                    // using Microsoft.AspNetCore.Http;
+                    ctx.Context.Response.Headers.Append("Cache-Control", $"public, max-age={cachePeriod}");
+                }
+            });
 
-            // Both middlewares are registered in the request processing pipeline in Configure:
-            app.UseConventionalMiddleware();
-            app.UseFactoryActivatedMiddleware();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "MyStaticFiles")),
+                RequestPath = "/StaticFiles"
+            });
 
-            app.UseMvc();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                ServeUnknownFileTypes = true,
+                DefaultContentType = "image/png"
+            });
         }
 
         private static void HandleMultiSeg(IApplicationBuilder app)
