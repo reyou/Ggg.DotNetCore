@@ -14,7 +14,7 @@ namespace fundamentalsProject.Pages
         [Authorize]
         public IActionResult OnGet()
         {
-            var file = Path.Combine(Directory.GetCurrentDirectory(),
+            string file = Path.Combine(Directory.GetCurrentDirectory(),
                 "MyStaticFiles", "images", "banner.png");
             // http://localhost:50312/bannerimage
             return PhysicalFile(file, "image/png");

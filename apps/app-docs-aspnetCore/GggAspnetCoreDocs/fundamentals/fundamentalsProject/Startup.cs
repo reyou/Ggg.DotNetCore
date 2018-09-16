@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,6 +44,7 @@ namespace fundamentalsProject
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            AddRouting(services);
             ILogger<Startup> logger = _loggerFactory.CreateLogger<Startup>();
 
             if (_env.IsDevelopment())
@@ -82,6 +84,15 @@ namespace fundamentalsProject
 
         }
 
+        /// <summary>
+        /// https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-2.1#use-routing-middleware
+        /// </summary>
+        /// <param name="services"></param>
+        private void AddRouting(IServiceCollection services)
+        {
+            services.AddRouting();
+        }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         /// <summary>
         /// Configure defines the middleware called in the request pipeline.
@@ -90,6 +101,9 @@ namespace fundamentalsProject
         /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            // Routes must be configured in the Startup.Configure method. 
+            ConfigureRoutes(app);
+
             // middleware
             app.Use(async (context, next) =>
             {
@@ -146,6 +160,62 @@ namespace fundamentalsProject
             app.UseFactoryActivatedMiddleware();
 
             app.UseMvc();
+        }
+
+        /// <summary>
+        /// https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-2.1#reserved-routing-names
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="routes"></param>
+        private void UrlGenerationReference(IApplicationBuilder app, IRouter routes)
+        {
+            app.Run(async (context) =>
+            {
+                RouteValueDictionary dictionary = new RouteValueDictionary
+                {
+                    { "operation", "create" },
+                    { "id", 123}
+                };
+
+                VirtualPathContext vpc = new VirtualPathContext(context, null, dictionary,
+                    "Track Package Route");
+                var path = routes.GetVirtualPath(vpc).VirtualPath;
+
+                context.Response.ContentType = "text/html";
+                await context.Response.WriteAsync("Menu<hr/>");
+                await context.Response.WriteAsync(
+                    $"<a href='{path}'>Create Package 123</a><br/>");
+            });
+        }
+
+        /// <summary>
+        /// http://localhost:50312/package/create/3
+        /// http://localhost:50312/hello/Joe
+        /// </summary>
+        /// <param name="app"></param>
+        private void ConfigureRoutes(IApplicationBuilder app)
+        {
+            RouteHandler trackPackageRouteHandler = new RouteHandler(context =>
+            {
+                RouteValueDictionary routeValues = context.GetRouteData().Values;
+                return context.Response.WriteAsync(
+                    $"Hello! Route values: {string.Join(", ", routeValues)}");
+            });
+            RouteBuilder routeBuilder = new RouteBuilder(app, trackPackageRouteHandler);
+            routeBuilder.MapRoute(
+                "Track Package Route",
+                "package/{operation:regex(^track|create|detonate$)}/{id:int}");
+            routeBuilder.MapGet("hello/{name}", context =>
+            {
+                object name = context.GetRouteValue("name");
+                // The route handler when HTTP GET "hello/<anything>" matches
+                // To match HTTP GET "hello/<anything>/<anything>, 
+                // use routeBuilder.MapGet("hello/{*name}"
+                return context.Response.WriteAsync($"Hi, {name}!");
+            });
+            IRouter routes = routeBuilder.Build();
+            // UrlGenerationReference(app, routes);
+            app.UseRouter(routes);
         }
 
         private void RunFileExtensionContentTypeProvider(IApplicationBuilder app)
