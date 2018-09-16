@@ -20,6 +20,7 @@ namespace fundamentalsProject
     /// The Startup class is where you define the request handling pipeline
     /// and where any services needed by the app are configured.
     /// The Startup class must be public and contain the following methods:
+    /// https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments?view=aspnetcore-2.1#startup-method-conventions
     /// </summary>
     public class Startup
     {
