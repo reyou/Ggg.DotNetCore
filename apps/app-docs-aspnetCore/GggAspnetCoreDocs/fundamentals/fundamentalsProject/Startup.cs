@@ -1,4 +1,5 @@
 using System.IO;
+using fundamentalsProject.configuration;
 using fundamentalsProject.dependencyInjection;
 using fundamentalsProject.middleware;
 using fundamentalsProject.middleware.extensibility;
@@ -46,6 +47,7 @@ namespace fundamentalsProject
         public void ConfigureServices(IServiceCollection services)
         {
             AddRouting(services);
+
             ILogger<Startup> logger = _loggerFactory.CreateLogger<Startup>();
 
             if (_env.IsDevelopment())
