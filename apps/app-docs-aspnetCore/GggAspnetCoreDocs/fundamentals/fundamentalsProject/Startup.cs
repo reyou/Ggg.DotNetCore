@@ -1,6 +1,7 @@
 using System.IO;
 using fundamentalsProject.configuration;
 using fundamentalsProject.dependencyInjection;
+using fundamentalsProject.Exceptions;
 using fundamentalsProject.middleware;
 using fundamentalsProject.middleware.extensibility;
 using Microsoft.AspNetCore.Builder;
@@ -115,6 +116,15 @@ namespace fundamentalsProject
                 // Do logging or other work that doesn't write to the Response.
             });
 
+            // http://localhost:50312/missingpage
+            app.UseStatusCodePages(async context =>
+            {
+                context.HttpContext.Response.ContentType = "text/plain";
+                await context.HttpContext.Response.WriteAsync(
+                    "Status code page, status code: " +
+                    context.HttpContext.Response.StatusCode);
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -161,7 +171,7 @@ namespace fundamentalsProject
             // Both middlewares are registered in the request processing pipeline in Configure:
             app.UseConventionalMiddleware();
             app.UseFactoryActivatedMiddleware();
-
+            app.UseMiddleware<GggExceptionHandlingMiddleware>();
             app.UseMvc();
         }
 
