@@ -18,6 +18,7 @@ using Microsoft.Net.Http.Headers;
 namespace fundamentalsProject.Exceptions
 {
     /// <summary>
+    /// http://localhost:50312/ThrowException
     /// https://stackoverflow.com/questions/38630076/asp-net-core-web-api-exception-handling/
     /// https://stackoverflow.com/a/51847739/929902
     /// </summary>

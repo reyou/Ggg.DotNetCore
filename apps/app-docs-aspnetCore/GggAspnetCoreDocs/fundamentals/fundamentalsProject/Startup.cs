@@ -117,6 +117,8 @@ namespace fundamentalsProject
             });
 
             // http://localhost:50312/missingpage
+            /*Adds a StatusCodePages middleware with a default response handler that 
+            checks for responses with status codes between 400 and 599 that do not have a body.*/
             app.UseStatusCodePages(async context =>
             {
                 context.HttpContext.Response.ContentType = "text/plain";
@@ -171,6 +173,7 @@ namespace fundamentalsProject
             // Both middlewares are registered in the request processing pipeline in Configure:
             app.UseConventionalMiddleware();
             app.UseFactoryActivatedMiddleware();
+
             app.UseMiddleware<GggExceptionHandlingMiddleware>();
             app.UseMvc();
         }
@@ -362,6 +365,24 @@ namespace fundamentalsProject
             {
                 await context.Response.WriteAsync("Map Test 2");
             });
+        }
+
+        /// <summary>
+        /// https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/web-host?view=aspnetcore-2.1#iapplicationlifetime-interface
+        /// </summary>
+        private void OnStarted()
+        {
+            // Perform post-startup activities here
+        }
+
+        private void OnStopping()
+        {
+            // Perform on-stopping activities here
+        }
+
+        private void OnStopped()
+        {
+            // Perform post-stopped activities here
         }
 
     }
