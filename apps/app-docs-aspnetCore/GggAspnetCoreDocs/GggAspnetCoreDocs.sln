@@ -37,6 +37,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fundamentals-hostedServices
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackgroundTasksSample", "fundamentals-hostedServices\BackgroundTasksSample-GenericHost\BackgroundTasksSample.csproj", "{674AA0F9-CCEB-4793-B12A-F2B600742482}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fundamentals-appState", "fundamentals-appState", "{B60AA025-36B8-4F23-9BC1-DACE24BC40BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SessionSample", "fundamentals-appState\SessionSample\SessionSample.csproj", "{9AFD8555-0027-4F50-AE57-0E869400F984}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,10 @@ Global
 		{674AA0F9-CCEB-4793-B12A-F2B600742482}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{674AA0F9-CCEB-4793-B12A-F2B600742482}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{674AA0F9-CCEB-4793-B12A-F2B600742482}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AFD8555-0027-4F50-AE57-0E869400F984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AFD8555-0027-4F50-AE57-0E869400F984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AFD8555-0027-4F50-AE57-0E869400F984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AFD8555-0027-4F50-AE57-0E869400F984}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +84,7 @@ Global
 		{7482F599-2A96-45BE-A627-7A1ABADF6DAA} = {CB0C673E-3178-41C9-90B6-B0E257A4AD4B}
 		{97B1055A-9B38-4346-BDA2-9F1DF2D9F8CC} = {2A4E5AC0-A5B1-4732-A47E-B833B0B37C91}
 		{674AA0F9-CCEB-4793-B12A-F2B600742482} = {687C26DA-E7B6-4EC8-B50F-5EAC1CEDE313}
+		{9AFD8555-0027-4F50-AE57-0E869400F984} = {B60AA025-36B8-4F23-9BC1-DACE24BC40BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {02E9C280-C8D3-49C6-846B-277DD5886646}
