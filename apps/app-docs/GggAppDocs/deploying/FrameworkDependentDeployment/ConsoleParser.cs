@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace GggAppDocs.FrameworkDependentDeployment
+namespace GggAppDocs.deploying.FrameworkDependentDeployment
 {
     /// <summary>
     /// Framework-dependent deployment
