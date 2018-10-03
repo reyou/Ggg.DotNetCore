@@ -1,0 +1,16 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2>Hello from a Razor UI class library!</h2>
+<p> From  RazorUIClassLib\Areas\MyFeature\Pages\Page1.cshtml</p>
+<p>
+    This page is rendered in RazorUIClassLib because it does not exist in WebApp1.
+</p>
+<p>
+    @*<a href="/MyFeature/Page2">Click here to see Page2 (It is rendered from WebApp1)</a>*@
+    <a asp-page="/Page2" asp-area="MyFeature" class="navbar-brand">Click here to see Page2 (It is rendered from WebApp1)</a>
+</p>
+<p>
+    <div> This is _Message partial view</div>
+    <partial name="_Message" />
+</p>
