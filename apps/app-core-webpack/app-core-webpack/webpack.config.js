@@ -7,7 +7,8 @@ module.exports = function (env) {
 
     // Setup base config for all environments
     var config = {
-        target: "node",
+        target: "web",
+        mode: "development",
         entry: {
             main: "./Client/js/main.js"
         },
