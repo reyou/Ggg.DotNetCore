@@ -1,6 +1,4 @@
 ﻿using System;
-using GggAppDocs.FrameworkDependentDeployment;
-using GggNetStandard.Pets;
 
 namespace GggAppDocs
 {
@@ -8,13 +6,7 @@ namespace GggAppDocs
     {
         static void Main(string[] args)
         {
-            ConsoleParser.MainConsoleParser();
-            // PetProgram.Main_Pet(new[] { "" });
-            // FibonacciGenerator.Main_FibonacciGenerator(new[] { "" });
-            // FibonacciNumbers.Main(new[] { "ggg" });
-            // Debug.WriteLine($"The answer is {new Thing().Get(42)}.");
-            // Debug.WriteLine("Hello".StartsWithUpper());
-            // HelloWorldApplication.Run();
+            api.system.arraysegment.example2.Example.Main2();
             Console.ReadLine();
         }
     }
