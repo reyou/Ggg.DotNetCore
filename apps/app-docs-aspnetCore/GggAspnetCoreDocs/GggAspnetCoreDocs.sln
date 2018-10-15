@@ -61,6 +61,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp1", "razor-pages\ui-c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GggRazorClassLib", "razor-pages\ui-class\GggRazorClassLib\GggRazorClassLib.csproj", "{8FF27232-4DA6-4280-B44C-69DAC4974EE6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "security", "security", "{4A636F28-C475-4013-AA0A-C06BFEC1A7A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookieSample", "security\CookieSample\CookieSample.csproj", "{2E6093B8-3DE4-4386-BC1A-AD9128740C0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +115,10 @@ Global
 		{8FF27232-4DA6-4280-B44C-69DAC4974EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FF27232-4DA6-4280-B44C-69DAC4974EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FF27232-4DA6-4280-B44C-69DAC4974EE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E6093B8-3DE4-4386-BC1A-AD9128740C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E6093B8-3DE4-4386-BC1A-AD9128740C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E6093B8-3DE4-4386-BC1A-AD9128740C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E6093B8-3DE4-4386-BC1A-AD9128740C0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -132,6 +140,7 @@ Global
 		{48621FD3-2078-4E46-8220-0548544723FF} = {517B45D8-3E97-48F3-B85F-E315EF4EDF58}
 		{8F711CFD-74C5-4458-924B-77A992DFF45B} = {48621FD3-2078-4E46-8220-0548544723FF}
 		{8FF27232-4DA6-4280-B44C-69DAC4974EE6} = {48621FD3-2078-4E46-8220-0548544723FF}
+		{2E6093B8-3DE4-4386-BC1A-AD9128740C0B} = {4A636F28-C475-4013-AA0A-C06BFEC1A7A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {02E9C280-C8D3-49C6-846B-277DD5886646}
