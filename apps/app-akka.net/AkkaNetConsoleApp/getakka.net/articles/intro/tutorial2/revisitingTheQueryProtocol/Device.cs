@@ -12,28 +12,29 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2
         protected string DeviceId { get; }
         protected override void PreStart()
         {
-            TestUtilities.Info($"Device actor {GroupId}-{DeviceId} started");
+            TestUtilities.Info($"Device.PreStart() Device actor {GroupId}-{DeviceId} started");
             Log.Info($"Device actor {GroupId}-{DeviceId} started");
         }
 
         protected override void PostStop()
         {
-            TestUtilities.Info($"Device actor {GroupId}-{DeviceId} stopped");
+            TestUtilities.Info($"Device.PostStop() Device actor {GroupId}-{DeviceId} stopped");
             Log.Info($"Device actor {GroupId}-{DeviceId} stopped");
         }
 
         public Device(string groupId, string deviceId)
         {
-            TestUtilities.WriteLine($"Device Constructor. groupId: {groupId}, deviceId: {deviceId}");
+            TestUtilities.WriteLine($"Device.Constructor() groupId: {groupId}, deviceId: {deviceId}");
             GroupId = groupId;
             DeviceId = deviceId;
         }
         protected override void OnReceive(object message)
         {
-            TestUtilities.WriteLine("Device OnReceive: " + message);
+            TestUtilities.WriteLine("Device.OnReceive() " + message);
             switch (message)
             {
                 case MainDevice.ReadTemperature read:
+                    _lastTemperatureReading = 123;
                     Sender.Tell(new revisiting.RespondTemperature(read.RequestId, _lastTemperatureReading));
                     break;
             }
@@ -41,7 +42,7 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2
 
         public static Props Props(string groupId, string deviceId)
         {
-            TestUtilities.WriteLine($"Device Props. groupId: {groupId}, deviceId: {deviceId}");
+            TestUtilities.WriteLine($"Device.Props() groupId: {groupId}, deviceId: {deviceId}");
             return Akka.Actor.Props.Create(() => new Device(groupId, deviceId));
         }
     }

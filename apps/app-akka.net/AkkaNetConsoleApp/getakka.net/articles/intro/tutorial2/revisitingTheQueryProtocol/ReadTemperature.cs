@@ -7,7 +7,7 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2.revisiting
     {
         public ReadTemperature(long requestId)
         {
-            TestUtilities.WriteLine($"ReadTemperature Constructor(). requestId: {requestId}");
+            TestUtilities.WriteLine($"ReadTemperature.Constructor() requestId: {requestId}");
             RequestId = requestId;
         }
 

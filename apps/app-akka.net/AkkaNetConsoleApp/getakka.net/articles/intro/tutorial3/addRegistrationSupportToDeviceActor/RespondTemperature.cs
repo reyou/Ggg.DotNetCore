@@ -1,12 +1,12 @@
 ﻿using AkkaNetConsoleApp.TestUtilitiesNs;
-// ReSharper disable once CheckNamespace
-namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2.revisiting
+
+namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial3.addRegistrationSupportToDeviceActor
 {
     public sealed class RespondTemperature
     {
         public RespondTemperature(long requestId, double? value)
         {
-            TestUtilities.WriteLine($"RespondTemperature Constructor(). requestId: {requestId}, value: {value}");
+            TestUtilities.WriteLine($"RespondTemperature.Constructor() requestId: {requestId}");
             RequestId = requestId;
             Value = value;
         }

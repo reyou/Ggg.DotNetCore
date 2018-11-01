@@ -48,5 +48,10 @@ namespace AkkaNetConsoleApp.TestUtilitiesNs
         {
             WriteLine(message);
         }
+
+        public static void Warning(string message)
+        {
+            WriteLine(message);
+        }
     }
 }

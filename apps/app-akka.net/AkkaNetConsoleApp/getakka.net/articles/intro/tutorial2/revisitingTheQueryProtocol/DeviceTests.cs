@@ -14,14 +14,14 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2
         public void Tell()
         {
             TestUtilities.WriteLine("DeviceTests Begin");
-            IActorRef actor = Sys.ActorOf(Props.Create<Device>(), "device-actor");
+            IActorRef actor = Sys.ActorOf(Device.Props("group", "device"));
             MainDevice.ReadTemperature readMessage = new MainDevice.ReadTemperature()
             {
                 RequestId = Guid.NewGuid().GetHashCode()
             };
             actor.Tell(readMessage);
             TestUtilities.WriteLine("DeviceTests End");
-            Thread.Sleep(3000);
+            Thread.Sleep(TimeSpan.FromSeconds(5));
         }
     }
 }

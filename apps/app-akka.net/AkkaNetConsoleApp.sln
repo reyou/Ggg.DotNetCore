@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkkaNetConsoleApp", "AkkaNetConsoleApp\AkkaNetConsoleApp.csproj", "{E9BA4046-EA3E-4BB1-B44D-58D22225B0E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AkkaNetConsoleApp", "AkkaNetConsoleApp\AkkaNetConsoleApp.csproj", "{E9BA4046-EA3E-4BB1-B44D-58D22225B0E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql", "sql", "{6F8F699A-2A81-4909-9EBB-A2FF1C2C6B20}"
+	ProjectSection(SolutionItems) = preProject
+		sql\akka-local.sql = sql\akka-local.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
