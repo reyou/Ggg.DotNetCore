@@ -40,14 +40,14 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial3.deviceManager
                 switch (message)
                 {
                     case RequestTrackDevice trackMsg:
-                        if (groupIdToActor.TryGetValue(trackMsg.GroupId, out var actorRef))
+                        if (groupIdToActor.TryGetValue(trackMsg.GroupId, out IActorRef actorRef))
                         {
                             actorRef.Forward(trackMsg);
                         }
                         else
                         {
                             Log.Info($"Creating device group actor for {trackMsg.GroupId}");
-                            var groupActor = Context.ActorOf(DeviceGroup.Props(trackMsg.GroupId), $"group-{trackMsg.GroupId}");
+                            IActorRef groupActor = Context.ActorOf(DeviceGroup.Props(trackMsg.GroupId), $"group-{trackMsg.GroupId}");
                             Context.Watch(groupActor);
                             groupActor.Forward(trackMsg);
                             groupIdToActor.Add(trackMsg.GroupId, groupActor);
@@ -55,7 +55,7 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial3.deviceManager
                         }
                         break;
                     case Terminated t:
-                        var groupId = actorToGroupId[t.ActorRef];
+                        string groupId = actorToGroupId[t.ActorRef];
                         Log.Info($"Device group actor for {groupId} has been terminated");
                         actorToGroupId.Remove(t.ActorRef);
                         groupIdToActor.Remove(groupId);
