@@ -43,5 +43,10 @@ namespace AkkaNetConsoleApp.TestUtilitiesNs
             Console.WriteLine(messageObject);
             Logger.Information("{messageObject} ThreadId: {threadId}", messageObject, Thread.CurrentThread.ManagedThreadId);
         }
+
+        public static void Info(string message)
+        {
+            WriteLine(message);
+        }
     }
 }
