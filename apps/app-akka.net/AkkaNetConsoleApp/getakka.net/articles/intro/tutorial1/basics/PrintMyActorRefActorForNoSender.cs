@@ -3,22 +3,19 @@ using AkkaNetConsoleApp.TestUtilitiesNs;
 
 namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1.basics
 {
-    /// <summary>
-    /// https://getakka.net/articles/intro/tutorial-1.html#structure-of-an-iactorref-and-paths-of-actors
-    /// </summary>
-    public class PrintMyActorRefActor : UntypedActor
+    public class PrintMyActorRefActorForNoSender : UntypedActor
     {
         protected override void OnReceive(object message)
         {
-            // "Self: [akka://test/user/$a#853780428]" ThreadId: 10
+            // "Self: [akka://test/user/first-actor#949652029]" ThreadId: 7
             TestUtilities.WriteLine("Self: " + Self);
-            // "Sender: [akka://test/system/testActor1#533240652]" ThreadId: 10
+            // "Sender: [akka://test/deadLetters]" ThreadId: 7
             TestUtilities.WriteLine("Sender: " + Sender);
             switch (message)
             {
                 case "printit":
                     IActorRef secondRef = Context.ActorOf(Props.Empty, "second-actor");
-                    // "secondRef: [akka://test/user/$a/second-actor#289243848]" ThreadId: 10
+                    // "secondRef: [akka://test/user/first-actor/second-actor#889423230]" ThreadId: 7
                     TestUtilities.WriteLine("secondRef: " + secondRef);
                     break;
                 default:

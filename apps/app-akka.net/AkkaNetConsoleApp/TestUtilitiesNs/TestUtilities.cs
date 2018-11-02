@@ -53,5 +53,19 @@ namespace AkkaNetConsoleApp.TestUtilitiesNs
         {
             WriteLine(message);
         }
+
+        public static void Sleep(int seconds)
+        {
+            Thread.Sleep(TimeSpan.FromSeconds(seconds));
+            //if (Debugger.IsAttached)
+            //{
+            //    Debugger.Break();
+            //}
+        }
+
+        public static void WriteObject(object objectRef)
+        {
+            WriteLine($"{nameof(objectRef)}: {objectRef}");
+        }
     }
 }
