@@ -12,6 +12,9 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial4.addingTheQueryC
     [TestClass]
     public class DeviceGroupTests : TestKit
     {
+        /// <summary>
+        /// https://getakka.net/articles/intro/tutorial-4.html#adding-the-query-capability-to-the-group
+        /// </summary>
         [TestMethod]
         public void DeviceGroup_actor_must_be_able_to_collect_temperatures_from_all_active_devices()
         {
