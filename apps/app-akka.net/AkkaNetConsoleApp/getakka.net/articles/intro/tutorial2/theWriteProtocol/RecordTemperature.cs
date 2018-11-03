@@ -1,7 +1,7 @@
 ﻿
 
-// ReSharper disable once CheckNamespace
-namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2.write
+
+namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2.theWriteProtocol
 {
     public sealed class RecordTemperature
     {

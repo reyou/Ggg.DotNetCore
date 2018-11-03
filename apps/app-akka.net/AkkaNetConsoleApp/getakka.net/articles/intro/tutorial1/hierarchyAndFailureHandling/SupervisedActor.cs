@@ -2,7 +2,7 @@
 using AkkaNetConsoleApp.TestUtilitiesNs;
 using System;
 
-namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1
+namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1.hierarchyAndFailureHandling
 {
     public class SupervisedActor : UntypedActor
     {
@@ -18,12 +18,15 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1
 
         protected override void OnReceive(object message)
         {
-            TestUtilities.WriteLine("SupervisedActor OnReceive");
+            TestUtilities.WriteLine("SupervisedActor OnReceive message: " + message);
             switch (message)
             {
                 case "fail":
-                    TestUtilities.WriteLine("SupervisedActor fails now");
-                    throw new Exception("I failed!");
+                    {
+                        TestUtilities.WriteLine("SupervisedActor fails now");
+                        throw new Exception("I failed!");
+                    }
+
             }
         }
     }

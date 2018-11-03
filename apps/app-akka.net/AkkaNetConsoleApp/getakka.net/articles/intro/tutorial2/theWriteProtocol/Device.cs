@@ -2,8 +2,7 @@
 using Akka.Event;
 using AkkaNetConsoleApp.TestUtilitiesNs;
 
-// ReSharper disable once CheckNamespace
-namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2.write
+namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2.theWriteProtocol
 {
     public class Device : UntypedActor
     {
@@ -29,6 +28,10 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2.write
         }
         protected override void OnReceive(object message)
         {
+            // "Self: [akka://test/user/$a#1885229940]" ThreadId: 10
+            TestUtilities.WriteLine("Self: " + Self);
+            // "Sender: [akka://test/system/testActor1#2123034334]" ThreadId: 10
+            TestUtilities.WriteLine("Sender: " + Sender);
             TestUtilities.WriteLine("Device.OnReceive() " + message);
             switch (message)
             {

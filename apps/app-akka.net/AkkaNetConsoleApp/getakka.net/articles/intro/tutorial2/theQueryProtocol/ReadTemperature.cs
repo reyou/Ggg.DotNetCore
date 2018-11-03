@@ -1,4 +1,4 @@
-﻿namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2
+﻿namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2.theQueryProtocol
 {
     public sealed class ReadTemperature
     {

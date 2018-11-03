@@ -1,7 +1,7 @@
 ﻿using Akka.Actor;
 using AkkaNetConsoleApp.TestUtilitiesNs;
 
-namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1
+namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1.theFirstActor
 {
     public class IotApp
     {
@@ -10,12 +10,10 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1
             TestUtilities.WriteLine("IotApp Init");
             using (ActorSystem system = ActorSystem.Create("iot-system"))
             {
-                // Create top level supervisor
-                IActorRef supervisor = system.ActorOf(Props.Create<IotSupervisor>(), "iot-supervisor");
+                Props props = Props.Create<IotSupervisor>();
+                IActorRef supervisor = system.ActorOf(props, "iot-supervisor");
+                // "IotApp Init supervisor: [akka://iot-system/user/iot-supervisor#425694740]" ThreadId: 3
                 TestUtilities.WriteLine("IotApp Init supervisor: " + supervisor);
-                // Exit the system after ENTER is pressed
-                // Console.ReadLine();
-
             }
         }
     }

@@ -2,10 +2,8 @@
 using Akka.TestKit.VsTest;
 using AkkaNetConsoleApp.TestUtilitiesNs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Threading;
 
-namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1
+namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1.hierarchyAndFailureHandling
 {
     [TestClass]
     public class SupervisingActorTests : TestKit
@@ -14,10 +12,12 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1
         public void TellFail()
         {
             TestUtilities.WriteLine("SupervisingActorTests begin");
-            IActorRef supervisingActor = Sys.ActorOf(Props.Create<SupervisingActor>(), "supervising-actor");
+            Props props = Props.Create<SupervisingActor>();
+            IActorRef supervisingActor = Sys.ActorOf(props, "supervising-actor");
             supervisingActor.Tell("failChild");
+            TestUtilities.WriteLine("SupervisingActorTests Fail Child Called");
             TestUtilities.WriteLine("SupervisingActorTests end");
-            Thread.Sleep(TimeSpan.FromSeconds(10));
+            TestUtilities.Sleep(3);
         }
     }
 }

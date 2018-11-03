@@ -1,13 +1,15 @@
 ﻿using Akka.Actor;
 using AkkaNetConsoleApp.TestUtilitiesNs;
 
-namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1
+namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1.hierarchyAndFailureHandling
 {
     public class SupervisingActor : UntypedActor
     {
-        private readonly IActorRef _child = Context.ActorOf(Props.Create<SupervisedActor>(), "supervised-actor");
+        private IActorRef _child;
         protected override void PreStart()
         {
+            Props props = Props.Create<SupervisedActor>();
+            _child = Context.ActorOf(props, "supervised-actor");
             TestUtilities.WriteLine("SupervisingActor PreStart");
         }
 
@@ -20,7 +22,7 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1
             switch (message)
             {
                 case "failChild":
-                    TestUtilities.WriteLine("SupervisingActor OnReceive: " + message);
+                    TestUtilities.WriteLine("SupervisingActor OnReceive message: " + message);
                     _child.Tell("fail");
                     break;
             }

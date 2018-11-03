@@ -2,8 +2,6 @@
 using Akka.TestKit.VsTest;
 using AkkaNetConsoleApp.TestUtilitiesNs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Threading;
 
 namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1.basics
 {
@@ -14,11 +12,14 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1.basics
         public void TellStop()
         {
             TestUtilities.WriteLine("TellStop Init");
-            IActorRef first = Sys.ActorOf(Props.Create<StartStopActor1>(), "first");
+            Props props = Props.Create<StartStopActor1>();
+            IActorRef first = Sys.ActorOf(props, "first");
+            // "first: [akka://test/user/first#280316691]" ThreadId: 3
+            TestUtilities.WriteLine("first: " + first);
             TestUtilities.WriteLine("StartStopActor1 Created");
             first.Tell("stop");
             TestUtilities.WriteLine("TellStop End");
-            Thread.Sleep(TimeSpan.FromSeconds(2));
+            TestUtilities.Sleep(2);
         }
     }
 }

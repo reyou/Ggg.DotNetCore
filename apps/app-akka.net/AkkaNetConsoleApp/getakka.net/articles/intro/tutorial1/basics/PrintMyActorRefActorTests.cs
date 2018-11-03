@@ -21,6 +21,21 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1.basics
             TestUtilities.WriteLine("PrintMyActorRefActorTests End");
             TestUtilities.Sleep(2);
         }
+
+        [TestMethod]
+        public void TellMultiple()
+        {
+            TestUtilities.WriteLine("PrintMyActorRefActorTests Begin");
+            for (int i = 0; i < 10; i++)
+            {
+                IActorRef actor = Sys.ActorOf<PrintMyActorRefActor>();
+                TestUtilities.WriteLine("actor: " + actor);
+                actor.Tell("printit");
+            }
+            TestUtilities.WriteLine("PrintMyActorRefActorTests End");
+            TestUtilities.Sleep(2);
+        }
+
         [TestMethod]
         public void TellNoSender()
         {

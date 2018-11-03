@@ -1,6 +1,7 @@
 ﻿using AkkaNetConsoleApp.TestUtilitiesNs;
+
 // ReSharper disable once CheckNamespace
-namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2.revisiting
+namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial2.revisitingTheQueryProtocol
 {
     public sealed class RespondTemperature
     {

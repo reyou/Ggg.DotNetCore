@@ -1,9 +1,7 @@
 ﻿using AkkaNetConsoleApp.TestUtilitiesNs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Threading;
 
-namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1
+namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1.theFirstActor
 {
     [TestClass]
     public class IotAppTests
@@ -14,7 +12,7 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1
             TestUtilities.WriteLine("IotAppTests Begin");
             IotApp.Init();
             TestUtilities.WriteLine("IotAppTests End");
-            Thread.Sleep(TimeSpan.FromSeconds(10));
+            TestUtilities.Sleep(3);
         }
     }
 }

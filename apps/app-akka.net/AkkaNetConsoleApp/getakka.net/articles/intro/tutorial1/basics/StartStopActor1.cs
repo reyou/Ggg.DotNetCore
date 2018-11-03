@@ -1,6 +1,5 @@
 ﻿using Akka.Actor;
 using AkkaNetConsoleApp.TestUtilitiesNs;
-using System;
 
 namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1.basics
 {
@@ -9,14 +8,13 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1.basics
         protected override void PreStart()
         {
             TestUtilities.WriteLine("StartStopActor1 PreStart");
-            Console.WriteLine("first started");
-            Context.ActorOf(Props.Create<StartStopActor2>(), "second");
+            Props props = Props.Create<StartStopActor2>();
+            Context.ActorOf(props, "second");
         }
 
         protected override void PostStop()
         {
             TestUtilities.WriteLine("StartStopActor1 PostStop");
-            Console.WriteLine("first stopped");
         }
 
         protected override void OnReceive(object message)
@@ -26,7 +24,7 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1.basics
             {
                 case "stop":
                     Context.Stop(Self);
-                    TestUtilities.WriteLine("StartStopActor1 Context.Stop(Self)");
+                    TestUtilities.WriteLine("StartStopActor1 Context.Stop(Self): " + Self);
                     break;
             }
         }

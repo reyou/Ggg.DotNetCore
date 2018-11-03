@@ -2,7 +2,7 @@
 using Akka.Event;
 using AkkaNetConsoleApp.TestUtilitiesNs;
 
-namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1
+namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1.theFirstActor
 {
     /// <summary>
     /// https://getakka.net/articles/intro/tutorial-1.html#the-first-actor
@@ -13,14 +13,14 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1
 
         protected override void PreStart()
         {
-            TestUtilities.WriteLine("IotSupervisor PreStart");
-            Log.Info("IoT Application started");
+            TestUtilities.Info("IotSupervisor PreStart");
+            // Log.Info("IoT Application started");
         }
 
         protected override void PostStop()
         {
-            TestUtilities.WriteLine("IotSupervisor PostStop");
-            Log.Info("IoT Application stopped");
+            TestUtilities.Info("IotSupervisor PostStop");
+            // Log.Info("IoT Application stopped");
         }
 
         // No need to handle any messages
@@ -32,7 +32,8 @@ namespace AkkaNetConsoleApp.getakka.net.articles.intro.tutorial1
         public static Props Props()
         {
             TestUtilities.WriteLine("IotSupervisor Props");
-            return Akka.Actor.Props.Create<IotSupervisor>();
+            Props props = Akka.Actor.Props.Create<IotSupervisor>();
+            return props;
         }
     }
 }
