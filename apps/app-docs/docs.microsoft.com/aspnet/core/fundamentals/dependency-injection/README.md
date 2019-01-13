@@ -1,0 +1,2 @@
+- Title: Dependency injection in ASP.NET Core | Microsoft Docs
+  - Url: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-2.2#call-services-from-main
