@@ -1,0 +1,9 @@
+{
+  "Tenants": {
+    "default": "abc",
+    "tenants": {
+      "192.168.1": "abc",
+      "127": "xyz"
+    }
+  }
+}

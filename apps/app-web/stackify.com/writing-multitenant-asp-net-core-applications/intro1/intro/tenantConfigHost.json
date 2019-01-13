@@ -1,0 +1,10 @@
+{
+  "Tenants": {
+    "default": "abc",
+    "tenants": {
+      "abc.com": "abc",
+      "xyz.net": "xyz",
+      "127.0.0.1": "xyz"
+    }
+  }
+}
