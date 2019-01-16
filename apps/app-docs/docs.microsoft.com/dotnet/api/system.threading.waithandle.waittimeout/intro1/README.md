@@ -1,0 +1,2 @@
+- Title: WaitHandle.WaitTimeout Field (System.Threading) | Microsoft Docs
+  - Url: https://docs.microsoft.com/en-us/dotnet/api/system.threading.waithandle.waittimeout?view=netframework-4.7.2
