@@ -1,0 +1,9 @@
+{
+  "Tenants": {
+    "default": "abc",
+    "tenants": {
+      "abc": "abc",
+      "xyz": "xyz"
+    }
+  }
+}
