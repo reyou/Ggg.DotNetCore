@@ -1,4 +1,0 @@
-
-> SignalRWebPack@1.0.0 release C:\Github\Ggg.Github\Ggg.DotNetCore\apps\app-docs-aspnetCore\GggAspnetCoreDocs\SignalRWebPack
-> webpack --mode=production
-

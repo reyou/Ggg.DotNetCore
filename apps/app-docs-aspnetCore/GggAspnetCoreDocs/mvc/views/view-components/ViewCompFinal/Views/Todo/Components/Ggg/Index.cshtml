@@ -1,9 +1,0 @@
-﻿@using ViewCompFinal.ViewComponents
-
-@{
-    ViewData["Title"] = "Index";
-}
-
-<h2>Index</h2>
-@*The parameters will be passed to the InvokeAsync method.*@
-@await Component.InvokeAsync("Ggg", new { maxPriority = 4, isDone = true })
