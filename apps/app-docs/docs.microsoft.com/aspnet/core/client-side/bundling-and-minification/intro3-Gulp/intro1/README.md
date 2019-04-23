@@ -4,7 +4,8 @@
 * Title:	madskristensen/BundlerMinifier: Visual Studio extension
   * Url:	https://github.com/madskristensen/BundlerMinifier
 
-### BuildBundlerMinifier
+### Gulp
 ```
-$ Install-Package BuildBundlerMinifier  	
+$ npm i -g gulp-cli 	
+$ gulp
 ```
